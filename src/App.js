@@ -6,7 +6,7 @@ import { blue } from "@material-ui/core/colors";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.css";
 import Routes from "./Routes";
-import { Loading } from "./view/components";
+import { Loading, Notify } from "./view/components";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +30,7 @@ const theme = createTheme({
 const App = () => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
+      <Notify />
       <Loading />
       <Routes />
     </ThemeProvider>
