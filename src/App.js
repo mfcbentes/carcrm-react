@@ -1,27 +1,38 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import { blue } from "@material-ui/core/colors";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Routes from "./Routes";
+import { Loading } from "./view/components";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: blue[900],
+      main: blue[500],
+    },
+  },
+  props: {
+    MuiTextField: {
+      variant: "outlined",
+      fullWidth: true,
+      size: "small",
+    },
+    MuiSelect: {
+      variant: "outlined",
+      fullWidth: true,
     },
   },
 });
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <h1>Hello World!</h1>
-    <Button variant="contained">Default</Button>
-    <Button variant="contained" color="primary">
-      Primary
-    </Button>
-    <Button variant="contained" color="secondary">
-      Secondary
-    </Button>
-  </ThemeProvider>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <Loading />
+      <Routes />
+    </ThemeProvider>
+  </Provider>
 );
 
 export default App;
