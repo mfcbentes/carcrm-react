@@ -4,6 +4,7 @@ import { store } from "./store/store";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { blue } from "@material-ui/core/colors";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/global.css";
 import Routes from "./Routes";
 import { Loading } from "./view/components";
 
