@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
-import Auth from "./view/auth";
+
+const Auth = lazy(() => import("./view/auth"));
+const Register = lazy(() => import("./view/register"));
 
 const Routes = () => (
   <Router>
@@ -14,7 +16,8 @@ const Routes = () => (
     >
       <Switch>
         <Route path="/vehicles" exact component={() => <h1>Veiculos</h1>} />
-        <Route path="/login" exact component={Auth} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Auth} />
         <Route path="/" exact component={Auth} />
       </Switch>
     </Suspense>
