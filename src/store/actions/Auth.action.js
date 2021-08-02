@@ -37,6 +37,7 @@ export const login = (credentials) => (dispatch) => {
     })
   );
 
+  //  return Http.post("oauth/token", {
   return Http.post("oauth/token", {
     grant_type: "password",
     client_id: 2,
@@ -63,6 +64,7 @@ export const login = (credentials) => (dispatch) => {
               open: true,
               class: "error",
               msg: "E-mail ou senha incorretos.",
+              time: 3000,
             })
           );
         } else {
@@ -71,6 +73,7 @@ export const login = (credentials) => (dispatch) => {
               open: true,
               class: "error",
               msg: "Erro ao se conectar ao servidor.",
+              time: 3000,
             })
           );
         }
