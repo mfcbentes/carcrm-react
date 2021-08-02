@@ -1,8 +1,19 @@
 import React from "react";
-import { TextField, Typography, Button } from "@material-ui/core";
+import { TextField, Typography, Button, withStyles } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { change, register } from "../../store/actions/Register.action";
 import { Link, Redirect } from 'react-router-dom';
+
+const RegisterButton = withStyles({
+  root: {
+    color: '#fff',
+    backgroundColor: '#28A745',
+    '&:hover': {
+      color: '#fff',
+      backgroundColor: '#218838'
+    }
+  }
+})(Button);
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -81,11 +92,15 @@ export default function Register() {
               Cadastre-se
             </Button>
 
-            <div className="text-center">
-              <Link to="/login" className="mt-4 text-danger">
-                Fazer login
-              </Link>
-            </div>
+            <RegisterButton
+              component={Link}
+              to="/login"
+              variant="contained"
+              fullWidth
+              size="large"
+            >
+              Fazer login
+            </RegisterButton>
 
             {(success) &&
               <Redirect to="/vehicles" />
